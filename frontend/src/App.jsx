@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
 
 const App = () => {
   const [logo, setLogo] = useState("");
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <>
       <Header logo={logo} />
+      <HeroSection />
     </>
   );
 };
