@@ -1,6 +1,7 @@
 const express = require("express");
 const headerRoutes = require("./router/headerRoutes");
 const authRoutes = require("./router/authRoutes");
+const heroSecRoute = require("./router/heroSecRoute");
 const cors = require("cors");
 const connectDB = require("./config/config");
 const env = require("dotenv");
@@ -17,6 +18,7 @@ app.use(
 );
 app.use("/api/header", headerRoutes);
 app.use("/api/admin", authRoutes);
+app.use("/api/hero-section", heroSecRoute);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
