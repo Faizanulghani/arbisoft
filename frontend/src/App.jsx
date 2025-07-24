@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import StatsSection from "./components/StatsSection";
 
 const App = () => {
   const [logo, setLogo] = useState("");
@@ -42,6 +43,7 @@ const App = () => {
         description={description}
         heroImage={heroImage}
       />
+      <StatsSection />
     </>
   );
 };
