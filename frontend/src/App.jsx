@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import StatsSection from "./components/StatsSection";
+import Feedback from "./components/Feedback";
 
 const App = () => {
   const [logo, setLogo] = useState("");
@@ -44,6 +45,7 @@ const App = () => {
         heroImage={heroImage}
       />
       <StatsSection />
+      <Feedback />
     </>
   );
 };
