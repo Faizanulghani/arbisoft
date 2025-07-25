@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 
 const OurOfferings = () => {
   const [activeTab, setActiveTab] = useState("services");
   const [selectedOfferIndex, setSelectedOfferIndex] = useState(0);
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const servicesOffers = [
     {
@@ -271,20 +273,20 @@ const OurOfferings = () => {
               than ever for business growth. Whoever wields it in the best
               possible way secures the leadership position in the market.
             </p>
-            <br/>
+            <br />
             <p>
               We offer a wide range of data services to meet varying business
               needs including predictive analysis to forecast future trends and
               outcomes, and computer vision solutions to enable machines to
               interpret visual data.
             </p>
-            <br/>
+            <br />
             <p>
               Our data &amp; AI solutions are designed to unlock data insights
               and improve decision-making capabilities through artificial
               intelligence.
             </p>
-            <br/>
+            <br />
             <p>
               Our expertise in machine learning and deep learning helps
               businesses implement intelligent systems that learn and improve
@@ -292,18 +294,18 @@ const OurOfferings = () => {
               help you convert raw data into meaningful insights, which then
               help you make well-informed business decisions.
             </p>
-            <br/>
+            <br />
             <p>
               Our natural language processing solutions (NLPs) can understand
               and respond to human language, which helps in improving
               communication and interaction.
             </p>
-            <br/>
+            <br />
             <p>
               We also produce solutions based on Generative AI that create new
               content based on existing data.
             </p>
-            <br/>
+            <br />
             <p>
               At Arbisoft, we equip our clients with all the tools and
               techniques to harness the power of data through machine learning
@@ -381,6 +383,7 @@ const OurOfferings = () => {
           onClick={() => {
             setActiveTab("services");
             setSelectedOfferIndex(0);
+            setExpandedIndex(null);
           }}
           className={`p-[27.5px] text-[22px] transition-all duration-300 border-b-2 ${
             activeTab === "services"
@@ -394,6 +397,7 @@ const OurOfferings = () => {
           onClick={() => {
             setActiveTab("solutions");
             setSelectedOfferIndex(0);
+            setExpandedIndex(null);
           }}
           className={`p-[27.5px] text-[22px] transition-all duration-300 border-b-2 ${
             activeTab === "solutions"
@@ -404,17 +408,45 @@ const OurOfferings = () => {
           Our Solutions
         </button>
       </div>
-      <div className="p-6">
-        <div className="flex flex-col md:flex-row items-start">
-          <div className="flex flex-col space-y-2 min-w-max border-r border-[#d9d9d9]">
+
+      <div className="block md:hidden">
+        {offers.map((offer, index) => (
+          <div key={index} className="border-b border-[#d9d9d9]">
+            <button
+              onClick={() =>
+                setExpandedIndex(expandedIndex === index ? null : index)
+              }
+              className={`w-full flex items-center justify-between text-left text-[20px] py-4 font-medium transition-colors duration-300 ${
+                expandedIndex === index ? "text-[#0a76db]" : "text-[#223554]"
+              }`}
+            >
+              {offer.title}
+              {expandedIndex === index ? (
+                <FaChevronUp size={20} className="text-[#0a76db]" />
+              ) : (
+                <FaChevronDown size={20} className="text-[#223554]" />
+              )}
+            </button>
+            {expandedIndex === index && (
+              <div className="bg-[#fafafb] p-4 animate-fadeIn">
+                {offer.details}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div className="hidden md:flex p-6">
+        <div className="flex flex-col md:flex-row items-start w-full">
+          <div className="flex flex-col space-y-2 w-[25%] min-w-max border-r border-[#d9d9d9]">
             {offers.map((offer, index) => (
               <button
                 key={index}
                 onClick={() => setSelectedOfferIndex(index)}
                 className={`relative text-left text-[24px] pt-[26px] pr-[48px] pb-[26px] pl-[0] text-[#223554] rounded-md transition-all ${
                   index === selectedOfferIndex
-                    ? "after:content-[''] after:absolute after:top-1/2 after:right-0 after:h-1/2 after:w-1 after:bg-[#0a76db] after:rounded-l-sm after:transform after:-translate-y-1/2"
-                    : ""
+                    ? "after:content-[''] after:absolute after:top-1/2 after:right-0 after:h-1/2 after:w-1 after:bg-[#0a76db] after:rounded-l-sm after:transform after:-translate-y-1/2 text-[#0a76db]"
+                    : "hover:text-[#0a76db]"
                 }`}
               >
                 {offer.title}
