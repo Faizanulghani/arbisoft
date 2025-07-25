@@ -7,6 +7,7 @@ import Feedback from "./components/Feedback";
 import ImpactStats from "./components/ImpactStats";
 import RecognitionSection from "./components/RecognitionSection";
 import OurOfferings from "./components/OurOfferings";
+import EngagementModels from "./components/EngagementModels";
 
 const App = () => {
   const [logo, setLogo] = useState("");
@@ -57,6 +58,7 @@ const App = () => {
       <RecognitionSection />
       <div className="max-w-[1440px] mx-auto">
           <OurOfferings />
+          <EngagementModels />
       </div>
     </>
   );
