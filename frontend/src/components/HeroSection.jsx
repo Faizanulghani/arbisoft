@@ -2,7 +2,7 @@ const HeroSection = ({ title, description, heroImage }) => {
   return (
     <div className="relative w-full overflow-hidden">
       <div className="relative flex flex-col md:flex-row items-center justify-between px-6 max-w-[1300px] mx-auto">
-        <div className="max-w-[730px] mb-10 md:mb-0 z-10 py-13">
+        <div className="max-w-[730px] mb-10 md:mb-0 z-10 lg:py-0 py-13">
           <h1 className="text-[40px] sm:text-[48px] md:text-[60px] leading-[1.2] tracking-[-2px] text-[#223554] font-bold">
             {title}
           </h1>

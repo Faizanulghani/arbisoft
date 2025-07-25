@@ -16,7 +16,7 @@ const Header = ({ logo }) => {
 
   return (
     <header className="w-full border-b border-[#d6d6d6]">
-      <div className="max-w-[1300px] mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex-shrink-0">
           {logo && (
             <img

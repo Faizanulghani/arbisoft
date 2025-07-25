@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import StatsSection from "./components/StatsSection";
 import Feedback from "./components/Feedback";
 import ImpactStats from "./components/ImpactStats";
+import RecognitionSection from "./components/RecognitionSection";
 
 const App = () => {
   const [logo, setLogo] = useState("");
@@ -52,6 +53,7 @@ const App = () => {
         <Feedback />
       </div>
       <ImpactStats />
+      <RecognitionSection />
     </>
   );
 };
