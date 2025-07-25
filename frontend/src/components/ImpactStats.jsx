@@ -8,10 +8,20 @@ import predict from "../assets/companyLogos/predict_io.webp";
 import twinner from "../assets/companyLogos/twinner.webp";
 
 const ImpactStats = () => {
+  const companyLogos = [
+    kayak,
+    careem,
+    insurify,
+    hyperjar,
+    maiden_century,
+    predict,
+    twinner,
+  ];
+
   return (
     <div className="relative bg-[#f4f5f7] overflow-hidden">
       <div
-        className="absolute bottom-0 left-0 w-full bg-no-repeat bg-bottom bg-contain opacity-10 pointer-events-none"
+        className="absolute md:bottom-0 bottom-[18%] top-0 left-0 w-full bg-no-repeat bg-bottom bg-contain opacity-10 pointer-events-none"
         style={{ backgroundImage: `url(${bg})` }}
       ></div>
 
@@ -41,56 +51,19 @@ const ImpactStats = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap align-center justify-center gap-2     mt-12">
-          <div className="w-[240px] h-[135px] bg-white rounded-[8px] p-[16px] ">
-            <img
-              src={kayak}
-              className="w-full h-full object-contain object-center"
-              alt=""
-            />
-          </div>
-          <div className="w-[240px] h-[135px] bg-white rounded-[8px] p-[16px]">
-            <img
-              src={careem}
-              className="w-full h-full object-contain object-center"
-              alt=""
-            />
-          </div>
-          <div className="w-[240px] h-[135px] bg-white rounded-[8px] p-[16px]">
-            <img
-              src={insurify}
-              className="w-full h-full object-contain object-center"
-              alt=""
-            />
-          </div>
-          <div className="w-[240px] h-[135px] bg-white rounded-[8px] p-[16px]">
-            <img
-              src={hyperjar}
-              className="w-full h-full object-contain object-center"
-              alt=""
-            />
-          </div>
-          <div className="w-[240px] h-[135px] bg-white rounded-[8px] p-[16px]">
-            <img
-              src={maiden_century}
-              className="w-full h-full object-contain object-center"
-              alt=""
-            />
-          </div>
-          <div className="w-[240px] h-[135px] bg-white rounded-[8px] p-[16px]">
-            <img
-              src={predict}
-              className="w-full h-full object-contain object-center"
-              alt=""
-            />
-          </div>
-          <div className="w-[240px] h-[135px] bg-white rounded-[8px] p-[16px]">
-            <img
-              src={twinner}
-              className="w-full h-full object-contain object-center"
-              alt=""
-            />
-          </div>
+        <div className="flex flex-wrap items-center justify-center gap-2 mt-12">
+          {companyLogos.map((logo, index) => (
+            <div
+              key={index}
+              className="lg:w-[240px] w-[120px] lg:h-[135px] h-[70px] bg-white rounded-[8px] p-[16px]"
+            >
+              <img
+                src={logo}
+                alt={`Company logo ${index + 1}`}
+                className="w-full h-full object-contain object-center"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
