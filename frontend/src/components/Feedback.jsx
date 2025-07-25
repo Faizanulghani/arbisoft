@@ -42,7 +42,7 @@ const Feedback = () => {
 
   return (
     <section className="px-4 md:px-10 py-12">
-      <h2 className="text-[48px] font-semibold text-[#223554] mb-6">
+      <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold text-[#223554] mb-6 text-center md:text-left leading-tight">
         What Our <span className="text-[#0A76DB]">Clients</span> Say About Us
       </h2>
 

@@ -21,8 +21,6 @@ const StatsSection = () => {
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/stat-section").then((res) => {
-      console.log(res);
-
       if (res.data.success) {
         setData(res.data.data);
       }
@@ -54,7 +52,9 @@ const StatsSection = () => {
           <li
             key={index}
             className={`text-center px-8 ${
-              data.stats.length - 1 === index ? "" : "border-r border-white"
+              data.stats.length - 1 === index
+                ? ""
+                : "border-b md:border-b-0 md:border-r"
             }`}
           >
             <div className="text-[28px] sm:text-[35px] font-semibold text-white">

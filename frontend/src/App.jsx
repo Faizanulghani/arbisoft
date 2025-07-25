@@ -38,14 +38,18 @@ const App = () => {
   }, []);
   return (
     <>
-      <Header logo={logo} />
-      <HeroSection
-        title={title}
-        description={description}
-        heroImage={heroImage}
-      />
+      <div className="max-w-[1440px] mx-auto">
+        <Header logo={logo} />
+        <HeroSection
+          title={title}
+          description={description}
+          heroImage={heroImage}
+        />
+      </div>
       <StatsSection />
-      <Feedback />
+      <div className="max-w-[1440px] mx-auto">
+        <Feedback />
+      </div>
     </>
   );
 };

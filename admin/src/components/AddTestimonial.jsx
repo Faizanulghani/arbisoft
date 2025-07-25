@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import API from "../api";
 
 const AddTestimonial = () => {
@@ -31,10 +30,7 @@ const AddTestimonial = () => {
       data.append("title", formData.title);
       data.append("logo", logo);
       data.append("image", image);
-
-      const res = await API.post("/testimonials", data);
-      console.log(res);
-
+      await API.post("/testimonials", data);
       setMsg("Testimonial added successfully!");
       setFormData({ category: "", text: "", name: "", title: "" });
       setLogo(null);
@@ -51,7 +47,6 @@ const AddTestimonial = () => {
     <div className="p-6 border rounded-lg shadow-md bg-white max-w-md w-full mt-8">
       <h2 className="text-xl font-semibold mb-4">Add New Testimonial</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Category */}
         <div>
           <label className="block font-medium mb-1">Category</label>
           <input
@@ -63,7 +58,6 @@ const AddTestimonial = () => {
           />
         </div>
 
-        {/* Name & Title */}
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block font-medium mb-1">Reviewer Name</label>
@@ -87,7 +81,6 @@ const AddTestimonial = () => {
           </div>
         </div>
 
-        {/* Textarea */}
         <div>
           <label className="block font-medium mb-1">Testimonial Text</label>
           <textarea
@@ -99,7 +92,6 @@ const AddTestimonial = () => {
           ></textarea>
         </div>
 
-        {/* Logo Upload */}
         <div>
           <label className="block font-medium mb-1">Company Logo</label>
           <input
@@ -110,7 +102,6 @@ const AddTestimonial = () => {
           />
         </div>
 
-        {/* Reviewer Image Upload */}
         <div>
           <label className="block font-medium mb-1">Reviewer Image</label>
           <input
