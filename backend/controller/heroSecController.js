@@ -8,12 +8,13 @@ exports.getTitle = async (req, res) => {
 
 exports.titleUpdate = async (req, res) => {
   try {
-    const { title } = req.body;
+    const { title, highlightWord } = req.body;
     let heroSec = await HeroSection.findOne();
     if (!heroSec) {
-      heroSec = new HeroSection({ title });
+      heroSec = new HeroSection({ title, highlightWord });
     } else {
       heroSec.title = title;
+      heroSec.highlightWord = highlightWord;
     }
     await heroSec.save();
     res.json({ success: true, message: "Title updated successfully" });

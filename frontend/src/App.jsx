@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 const App = () => {
   const [logo, setLogo] = useState("");
   const [title, setTitle] = useState("");
+  const [highlightWord, setHighlightWord] = useState("");
   const [description, setDescription] = useState("");
   const [heroImage, setHeroImage] = useState("");
   useEffect(() => {
@@ -27,6 +28,7 @@ const App = () => {
         .get("http://localhost:3000/api/hero-section/title/")
         .then((res) => {
           setTitle(res.data.title);
+          setHighlightWord(res.data.highlightWord);
         });
 
       await axios
@@ -51,6 +53,7 @@ const App = () => {
           title={title}
           description={description}
           heroImage={heroImage}
+          highlightWord={highlightWord}
         />
       </div>
       <StatsSection />

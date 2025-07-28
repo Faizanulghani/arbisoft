@@ -3,12 +3,17 @@ import API from "../api";
 const TitleUpdater = () => {
   const [updatedMessage, setUpdatedMessage] = useState("");
   const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("");
+  const [highlightWord, setHighlightWord] = useState("");
 
   const handleTitleUpdate = async (e) => {
     e.preventDefault();
     const title = e.target[0].value;
     try {
-      const response = await API.put("/hero-section/title", { title });
+      const response = await API.put("/hero-section/title", {
+        title,
+        highlightWord,
+      });
       if (response.data.success) {
         setUpdatedMessage(response.data.message);
       } else {
@@ -17,7 +22,8 @@ const TitleUpdater = () => {
     } catch (err) {
       setMessage("Something went wrong");
     }
-    e.target[0].value = "";
+    setTitle("");
+    setHighlightWord("");
   };
   return (
     <div className="p-6 border rounded-lg shadow-md bg-white max-w-md w-full mt-8">
@@ -27,6 +33,15 @@ const TitleUpdater = () => {
           type="text"
           placeholder="Enter new title"
           className="w-full border px-3 py-2 rounded"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Word to highlight"
+          className="w-full border px-3 py-2 rounded"
+          value={highlightWord}
+          onChange={(e) => setHighlightWord(e.target.value)}
         />
         <button
           type="submit"

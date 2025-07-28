@@ -25,7 +25,7 @@ const ImpactStats = () => {
         style={{ backgroundImage: `url(${bg})` }}
       ></div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-0 py-12 flex flex-col justify-center items-center relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 py-12 flex flex-col justify-center items-center relative z-10">
         <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold text-[#223554] mb-6 text-center leading-tight">
           Creating Real Value: Our Track Record with
           <span className="text-[#0A76DB] text-center"> 50+ Tech Startups</span>

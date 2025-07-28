@@ -1,10 +1,25 @@
-const HeroSection = ({ title, description, heroImage }) => {
+const HeroSection = ({ title, description, heroImage, highlightWord }) => {
+  const renderTitle = () => {
+    if (!highlightWord) return title;
+
+    const parts = title.split(new RegExp(`(${highlightWord})`, "gi"));
+
+    return parts.map((part, i) =>
+      part.toLowerCase() === highlightWord.toLowerCase() ? (
+        <span key={i} className="text-[#0A76DB]">
+          {part}
+        </span>
+      ) : (
+        <span key={i}>{part}</span>
+      )
+    );
+  };
   return (
     <div className="relative w-full overflow-hidden">
       <div className="relative flex flex-col md:flex-row items-center justify-between px-6 max-w-[1300px] mx-auto">
         <div className="max-w-[730px] mb-10 md:mb-0 z-10 lg:py-0 py-13">
           <h1 className="text-[40px] sm:text-[48px] md:text-[60px] leading-[1.2] tracking-[-2px] text-[#223554] font-bold">
-            {title}
+            {renderTitle()}
           </h1>
           <p className="text-[18px] sm:text-[20px] text-[#0D0D0D] mt-6">
             {description}
