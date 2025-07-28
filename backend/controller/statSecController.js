@@ -9,18 +9,32 @@ exports.getStatsSection = async (req, res) => {
   }
 };
 
-exports.updateStatsSection = async (req, res) => {
+exports.updateStatHeading = async (req, res) => {
   try {
-    const { heading, stats } = req.body;
-
+    const { heading, highlightWord } = req.body;
     let section = await StatSection.findOne();
     if (!section) {
-      section = new StatSection({ heading, stats });
+      section = new StatSection({ heading, highlightWord });
     } else {
       section.heading = heading;
+      section.highlightWord = highlightWord;
+    }
+    await section.save();
+    res.json({ success: true, message: "Heading updated" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
+
+exports.updateStatItems = async (req, res) => {
+  try {
+    const { stats } = req.body;
+    let section = await StatSection.findOne();
+    if (!section) {
+      section = new StatSection({ stats });
+    } else {
       section.stats = stats;
     }
-
     await section.save();
     res.json({ success: true, message: "Stats updated" });
   } catch (err) {

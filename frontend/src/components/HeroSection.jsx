@@ -2,10 +2,19 @@ const HeroSection = ({ title, description, heroImage, highlightWord }) => {
   const renderTitle = () => {
     if (!highlightWord) return title;
 
-    const parts = title.split(new RegExp(`(${highlightWord})`, "gi"));
+    const wordsArray = highlightWord
+      .split(",")
+      .map((w) => w.trim().toLowerCase())
+      .filter(Boolean);
+
+    if (wordsArray.length === 0) return title;
+
+    const regex = new RegExp(`(${wordsArray.join("|")})`, "gi");
+
+    const parts = title.split(regex);
 
     return parts.map((part, i) =>
-      part.toLowerCase() === highlightWord.toLowerCase() ? (
+      wordsArray.includes(part.toLowerCase()) ? (
         <span key={i} className="text-[#0A76DB]">
           {part}
         </span>

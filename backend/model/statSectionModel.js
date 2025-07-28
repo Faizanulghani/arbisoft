@@ -7,6 +7,7 @@ const StatItemSchema = new mongoose.Schema({
 
 const StatSectionSchema = new mongoose.Schema({
   heading: String,
+  highlightWord: String,
   stats: [StatItemSchema],
 });
 
