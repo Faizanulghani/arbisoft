@@ -18,6 +18,7 @@ const App = () => {
   const [highlightWord, setHighlightWord] = useState("");
   const [description, setDescription] = useState("");
   const [heroImage, setHeroImage] = useState("");
+  const [testimonialsTitle,setTestimonialsTitle] = useState("")
   useEffect(() => {
     async function fetchData() {
       await axios.get("http://localhost:3000/api/header/").then((res) => {
@@ -42,6 +43,12 @@ const App = () => {
         .then((res) => {
           setHeroImage(res.data.image);
         });
+
+      await axios
+        .get("http://localhost:3000/api/testimonialsTitle/")
+        .then((res) => {
+          setTestimonialsTitle(res.data.title);
+        });
     }
     fetchData();
   }, []);
@@ -58,7 +65,7 @@ const App = () => {
       </div>
       <StatsSection />
       <div className="max-w-[1440px] mx-auto">
-        <Feedback />
+        <Feedback testimonialsTitle={testimonialsTitle} />
       </div>
       <ImpactStats />
       <RecognitionSection />

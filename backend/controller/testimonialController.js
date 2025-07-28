@@ -1,5 +1,27 @@
 const Testimonial = require("../model/testimonialModel");
 const cloudinary = require("../config/cloudinary");
+const testimonialTitleModel = require("../model/testimonialTitleModel");
+
+exports.getTestimonialTitle = async (req,res)=>{
+  const testimonialTitle = await testimonialTitleModel.findOne();
+  res.send(testimonialTitle);
+}
+
+exports.updateTestimonialTitle = async (req,res)=>{
+  try {
+    const {title} = req.body;
+    let testimonialTitle = await testimonialTitleModel.findOne();
+    if (!testimonialTitle) {
+      testimonialTitle = new testimonialTitleModel({ title });
+    } else {
+      testimonialTitle.title = title;
+    }
+    await testimonialTitle.save();
+    res.json({ success: true, message: "Testimonial title updated" });
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+}
 
 exports.getTestimonials = async (req, res) => {
   const { category } = req.query;

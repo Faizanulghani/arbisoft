@@ -6,6 +6,7 @@ import DescriptionUpdate from "../components/descriptionUpdate";
 import HeroImageUpdate from "../components/HeroImageUpdate";
 import StatUpdate from "../components/StatUpdate";
 import AddTestimonial from "../components/AddTestimonial";
+import TestimonialTitle from "../components/TestimonialTitle";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ const AdminDashboard = () => {
         <DescriptionUpdate />
         <HeroImageUpdate />
         <StatUpdate />
+        <TestimonialTitle />
         <AddTestimonial />
       </div>
     </>
