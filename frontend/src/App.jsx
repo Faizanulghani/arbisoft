@@ -10,6 +10,7 @@ import OurOfferings from "./components/OurOfferings";
 import EngagementModels from "./components/EngagementModels";
 import ContactForm from "./components/ContactForm";
 import Newsletter from "./components/Newsletter";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [logo, setLogo] = useState("");
@@ -64,6 +65,7 @@ const App = () => {
       </div>
       <ContactForm />
       <Newsletter />
+      <Footer />
     </>
   );
 };
