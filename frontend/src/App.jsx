@@ -9,6 +9,7 @@ import RecognitionSection from "./components/RecognitionSection";
 import OurOfferings from "./components/OurOfferings";
 import EngagementModels from "./components/EngagementModels";
 import ContactForm from "./components/ContactForm";
+import Newsletter from "./components/Newsletter";
 
 const App = () => {
   const [logo, setLogo] = useState("");
@@ -62,6 +63,7 @@ const App = () => {
         <EngagementModels />
       </div>
       <ContactForm />
+      <Newsletter />
     </>
   );
 };
