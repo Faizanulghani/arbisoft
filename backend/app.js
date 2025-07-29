@@ -5,6 +5,8 @@ const heroSecRoute = require("./router/heroSecRoute");
 const statSecRoute = require("./router/statSecRoute");
 const testimonialRoutes = require("./router/testimonialRoutes");
 const impactRoute = require("./router/impactRoute");
+const recognitionRoute = require("./router/recognitionRoute");
+
 const cors = require("cors");
 const connectDB = require("./config/config");
 const env = require("dotenv");
@@ -25,6 +27,7 @@ app.use("/api/hero-section", heroSecRoute);
 app.use("/api", statSecRoute);
 app.use("/api", testimonialRoutes);
 app.use("/api", impactRoute);
+app.use("/api/recognition", recognitionRoute);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
