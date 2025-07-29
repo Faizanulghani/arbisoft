@@ -1,23 +1,7 @@
 import bg from "../assets/lines.svg";
-import kayak from "../assets/companyLogos/kayak.png";
-import careem from "../assets/companyLogos/careem.webp";
-import insurify from "../assets/companyLogos/insurify.webp";
-import hyperjar from "../assets/companyLogos/hyperjar.webp";
-import maiden_century from "../assets/companyLogos/maiden_century.webp";
-import predict from "../assets/companyLogos/predict_io.webp";
-import twinner from "../assets/companyLogos/twinner.webp";
+import renderTitle from "../utils/renderTitle";
 
-const ImpactStats = () => {
-  const companyLogos = [
-    kayak,
-    careem,
-    insurify,
-    hyperjar,
-    maiden_century,
-    predict,
-    twinner,
-  ];
-
+const ImpactStats = ({ text, logos }) => {
   return (
     <div className="relative bg-[#f4f5f7] overflow-hidden">
       <div
@@ -27,13 +11,11 @@ const ImpactStats = () => {
 
       <div className="max-w-[1400px] mx-auto px-6 py-12 flex flex-col justify-center items-center relative z-10">
         <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold text-[#223554] mb-6 text-center leading-tight">
-          Creating Real Value: Our Track Record with
-          <span className="text-[#0A76DB] text-center"> 50+ Tech Startups</span>
+          {renderTitle(text.heading, text.highlightword)}
         </h2>
 
         <p className="text-[#0D0D0D] text-[20px] text-center mb-10">
-          Our services and solutions have driven growth and success for startups
-          globally.
+          {text.subheading}
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0">
@@ -52,13 +34,13 @@ const ImpactStats = () => {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-2 mt-12">
-          {companyLogos.map((logo, index) => (
+          {logos.map((item, index) => (
             <div
               key={index}
               className="lg:w-[240px] w-[120px] lg:h-[135px] h-[70px] bg-white rounded-[8px] p-[16px]"
             >
               <img
-                src={logo}
+                src={item.image}
                 alt={`Company logo ${index + 1}`}
                 className="w-full h-full object-contain object-center"
               />

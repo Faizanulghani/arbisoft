@@ -32,7 +32,11 @@ const StatUpdate = () => {
         highlightWord,
       });
       if (res.data.success) {
+        setTimeout(() => {
+          setMsg1("");
+        }, 2000);
         setMsg1("Heading and Highlight updated successfully!");
+        setLogo(null);
       } else {
         setMsg1("Failed to update.");
       }
@@ -49,7 +53,11 @@ const StatUpdate = () => {
     try {
       const res = await API.post("/stat-section/stats", { stats });
       if (res.data.success) {
+        setTimeout(() => {
+          setMsg2("");
+        }, 2000);
         setMsg2("Stats updated successfully!");
+        setLogo(null);
       } else {
         setMsg2("Failed to update stats.");
       }

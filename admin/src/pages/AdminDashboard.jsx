@@ -8,6 +8,8 @@ import StatUpdate from "../components/StatUpdate";
 import AddTestimonial from "../components/AddTestimonial";
 import TestimonialTitle from "../components/TestimonialTitle";
 import StatImageUpdate from "../components/statImageUpdate";
+import ImpactContentUpdate from "../components/ImpactContentUpdate";
+import ImpactImageUpdate from "../components/ImpactImageUpdate";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -33,6 +35,8 @@ const AdminDashboard = () => {
         <StatImageUpdate />
         <TestimonialTitle />
         <AddTestimonial />
+        <ImpactContentUpdate />
+        <ImpactImageUpdate />
       </div>
     </>
   );

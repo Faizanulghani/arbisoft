@@ -16,9 +16,12 @@ const App = () => {
   const [logo, setLogo] = useState("");
   const [title, setTitle] = useState("");
   const [highlightWord, setHighlightWord] = useState("");
+  const [feedbackHighlightWord, setFeedbackHighlightWord] = useState("");
   const [description, setDescription] = useState("");
   const [heroImage, setHeroImage] = useState("");
   const [testimonialsTitle, setTestimonialsTitle] = useState("");
+  const [text, setText] = useState("");
+  const [logos, setLogos] = useState([]);
   useEffect(() => {
     async function fetchData() {
       await axios.get("http://localhost:3000/api/header/").then((res) => {
@@ -48,8 +51,14 @@ const App = () => {
         .get("http://localhost:3000/api/testimonialsTitle/")
         .then((res) => {
           setTestimonialsTitle(res.data.title);
-          setHighlightWord(res.data.highlightword);
+          setFeedbackHighlightWord(res.data.highlightword);
         });
+
+      const textRes = await axios.get("http://localhost:3000/api/impact/content");
+      setText(textRes.data.data);
+
+      const logosRes = await axios.get("http://localhost:3000/api/impact/images");
+      setLogos(logosRes.data.data);
     }
     fetchData();
   }, []);
@@ -66,9 +75,12 @@ const App = () => {
       </div>
       <StatsSection />
       <div className="max-w-[1440px] mx-auto">
-        <Feedback testimonialsTitle={testimonialsTitle} highlightWord={highlightWord} />
+        <Feedback
+          testimonialsTitle={testimonialsTitle}
+          highlightWord={feedbackHighlightWord}
+        />
       </div>
-      <ImpactStats />
+      <ImpactStats text={text} logos={logos} />
       <RecognitionSection />
       <div className="max-w-[1440px] mx-auto">
         <OurOfferings />
