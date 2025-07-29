@@ -1,17 +1,5 @@
 import Marquee from "react-fast-marquee";
 import bg from "../assets/bg-10.png";
-
-import logo1 from "../assets/companyLogos/2u.png";
-import logo2 from "../assets/companyLogos/bvs.png";
-import logo3 from "../assets/companyLogos/edx.svg";
-import logo4 from "../assets/companyLogos/image 97.svg";
-import logo5 from "../assets/companyLogos/kayak.png";
-import logo6 from "../assets/companyLogos/lendaid.png";
-import logo7 from "../assets/companyLogos/traveliance.png";
-import logo8 from "../assets/companyLogos/mit.png";
-import logo9 from "../assets/companyLogos/payperks.svg";
-import logo10 from "../assets/companyLogos/c10.png";
-import logo11 from "../assets/companyLogos/hyperjar.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -23,6 +11,7 @@ const StatsSection = () => {
     stats: [],
     highlightWord: "",
   });
+  const [logos, setLogos] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:3000/api/stat-section").then((res) => {
@@ -30,21 +19,15 @@ const StatsSection = () => {
         setData(res.data.data);
       }
     });
+    axios
+      .get("http://localhost:3000/api/stat-section/statimage")
+      .then((res) => {
+        if (res.data.success) {
+          setLogos(res.data.data);
+        }
+      });
   }, []);
 
-  const logos = [
-    { img: logo1, alt: "logo1" },
-    { img: logo2, alt: "logo2" },
-    { img: logo3, alt: "logo3" },
-    { img: logo4, alt: "logo4" },
-    { img: logo5, alt: "logo5" },
-    { img: logo6, alt: "logo6" },
-    { img: logo7, alt: "logo7" },
-    { img: logo8, alt: "logo8" },
-    { img: logo9, alt: "logo9" },
-    { img: logo10, alt: "logo10" },
-    { img: logo11, alt: "logo11" },
-  ];
 
   return (
     <section className="px-4 pt-12 overflow-hidden bg-[#f4f5f7] text-center flex flex-col items-center justify-center">
@@ -85,7 +68,7 @@ const StatsSection = () => {
           {logos.map((item, index) => (
             <img
               key={index}
-              src={item.img}
+              src={item.image}
               alt={item.alt}
               className="mx-10 h-12 grayscale-[100%] hover:grayscale-0 transition-all duration-300 max-h-[45px]"
             />
