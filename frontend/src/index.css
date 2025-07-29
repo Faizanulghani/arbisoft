@@ -5,3 +5,7 @@
 *{
     font-family: "Inter", sans-serif;
 }
+
+.myContent h2{
+    font-size: 40px !important;
+}

@@ -6,6 +6,7 @@ const statSecRoute = require("./router/statSecRoute");
 const testimonialRoutes = require("./router/testimonialRoutes");
 const impactRoute = require("./router/impactRoute");
 const recognitionRoute = require("./router/recognitionRoute");
+const offeringRoutes = require("./router/offeringRoutes");
 
 const cors = require("cors");
 const connectDB = require("./config/config");
@@ -28,6 +29,7 @@ app.use("/api", statSecRoute);
 app.use("/api", testimonialRoutes);
 app.use("/api", impactRoute);
 app.use("/api/recognition", recognitionRoute);
+app.use("/api/offerings", offeringRoutes);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
