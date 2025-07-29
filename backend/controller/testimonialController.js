@@ -9,12 +9,13 @@ exports.getTestimonialTitle = async (req,res)=>{
 
 exports.updateTestimonialTitle = async (req,res)=>{
   try {
-    const {title} = req.body;
+    const {title,highlightword} = req.body;
     let testimonialTitle = await testimonialTitleModel.findOne();
     if (!testimonialTitle) {
-      testimonialTitle = new testimonialTitleModel({ title });
+      testimonialTitle = new testimonialTitleModel({ title,highlightword });
     } else {
       testimonialTitle.title = title;
+      testimonialTitle.highlightword = highlightword;
     }
     await testimonialTitle.save();
     res.json({ success: true, message: "Testimonial title updated" });

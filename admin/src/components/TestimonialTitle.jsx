@@ -4,13 +4,15 @@ import API from "../api";
 const TestimonialTitle = () => {
   const [updatedMessage, setUpdatedMessage] = useState("");
   const [message, setMessage] = useState("");
-  const [title,setTitle] = useState("")
+  const [title, setTitle] = useState("");
+  const [highlightword, setHighlightword] = useState("");
 
   let handleTitleUpdate = async (e) => {
     e.preventDefault();
     try {
       const response = await API.post("/testimonialsTitle", {
         title,
+        highlightword,
       });
       if (response.data.success) {
         setUpdatedMessage(response.data.message);
@@ -33,6 +35,13 @@ const TestimonialTitle = () => {
           className="w-full border px-3 py-2 rounded"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Word to highlight"
+          className="w-full border px-3 py-2 rounded"
+          value={highlightword}
+          onChange={(e) => setHighlightword(e.target.value)}
         />
         <button
           type="submit"

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import renderTitle from "../utils/renderTitle";
 
-const Feedback = ({testimonialsTitle}) => {
+const Feedback = ({ testimonialsTitle, highlightWord }) => {
   const [testimonials, setTestimonials] = useState([]);
   const [filter, setFilter] = useState("All");
   const [visible, setVisible] = useState(4);
@@ -43,7 +44,7 @@ const Feedback = ({testimonialsTitle}) => {
   return (
     <section className="px-4 md:px-10 py-12">
       <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold text-[#223554] mb-6 text-center md:text-left leading-tight">
-        {testimonialsTitle}
+        {renderTitle(testimonialsTitle, highlightWord)}
       </h2>
 
       <div className="flex flex-wrap gap-3 mb-10">

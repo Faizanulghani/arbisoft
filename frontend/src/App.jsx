@@ -18,7 +18,7 @@ const App = () => {
   const [highlightWord, setHighlightWord] = useState("");
   const [description, setDescription] = useState("");
   const [heroImage, setHeroImage] = useState("");
-  const [testimonialsTitle,setTestimonialsTitle] = useState("")
+  const [testimonialsTitle, setTestimonialsTitle] = useState("");
   useEffect(() => {
     async function fetchData() {
       await axios.get("http://localhost:3000/api/header/").then((res) => {
@@ -48,6 +48,7 @@ const App = () => {
         .get("http://localhost:3000/api/testimonialsTitle/")
         .then((res) => {
           setTestimonialsTitle(res.data.title);
+          setHighlightWord(res.data.highlightword);
         });
     }
     fetchData();
@@ -65,7 +66,7 @@ const App = () => {
       </div>
       <StatsSection />
       <div className="max-w-[1440px] mx-auto">
-        <Feedback testimonialsTitle={testimonialsTitle} />
+        <Feedback testimonialsTitle={testimonialsTitle} highlightWord={highlightWord} />
       </div>
       <ImpactStats />
       <RecognitionSection />
