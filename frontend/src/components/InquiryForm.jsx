@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import img from "../assets/contact.webp";
+import axios from "axios";
+import renderTitle from "../utils/renderTitle";
 
-const ContactForm = () => {
+const InquiryForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,13 +13,26 @@ const ContactForm = () => {
     description: "",
     budget: "",
   });
+  let [title, setTitle] = useState("");
+  let [subtitle, setSubTitle] = useState("");
+  let [highlightword, setHighlightword] = useState("");
+  let [image, setImage] = useState(null);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/inquiry").then((res) => {
+      setTitle(res.data.data[0].title);
+      setSubTitle(res.data.data[0].subtitle);
+      setHighlightword(res.data.data[0].highlightword);
+      setImage(res.data.data[0].imageurl);
+    });
+  }, []);
 
   return (
     <div className="w-full bg-gray-100 flex items-center justify-center ">
       <div className="flex w-full flex-col md:flex-row">
         <div className="bg-[#0a76db] flex-2 hidden md:flex items-center justify-end">
           <img
-            src={img}
+            src={image}
             alt="Talk to us"
             className="object-contain w-auto h-[905px]"
           />
@@ -25,11 +40,9 @@ const ContactForm = () => {
 
         <div className="flex-3 md:w-[65%] lg:w-full py-[64px] lg:px-[32px] px-[16px]">
           <h2 className="text-[36px] sm:text-[48px] font-semibold text-[#223554] mb-6">
-            Have Questions? Let's Talk.
+            {renderTitle(title, highlightword)}
           </h2>
-          <p className="text-[18px] text-[#0D0D0D] mb-10">
-            We have got the answers to your questions
-          </p>
+          <p className="text-[18px] text-[#0D0D0D] mb-10">{subtitle}</p>
 
           <form className="flex items-baseline flex-col gap-[42px]">
             <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -100,4 +113,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default InquiryForm;

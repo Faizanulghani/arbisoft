@@ -16,6 +16,7 @@ import OfferingsUpdate from "../components/OfferingsUpdate";
 import OfferingTitleUpdate from "../components/OfferingTItleUpdate";
 import EngagementTitleUpdate from "../components/EngagementTitleUpdate";
 import ServiceBlock from "../components/serviceBlock";
+import Inquiry from "../components/Inquiry";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -49,6 +50,7 @@ const AdminDashboard = () => {
         <OfferingsUpdate />
         <EngagementTitleUpdate />
         <ServiceBlock />
+        <Inquiry />
       </div>
     </>
   );

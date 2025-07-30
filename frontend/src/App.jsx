@@ -8,7 +8,7 @@ import ImpactStats from "./components/ImpactStats";
 import RecognitionSection from "./components/RecognitionSection";
 import OurOfferings from "./components/OurOfferings";
 import EngagementModels from "./components/EngagementModels";
-import ContactForm from "./components/ContactForm";
+import InquiryForm from "./components/InquiryForm";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
 
@@ -86,7 +86,7 @@ const App = () => {
         <OurOfferings />
         <EngagementModels />
       </div>
-      <ContactForm />
+      <InquiryForm />
       <Newsletter />
       <Footer />
     </>
