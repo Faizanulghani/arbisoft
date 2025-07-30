@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import renderTitle from "../utils/renderTitle";
 import axios from "axios";
 
 const OurOfferings = () => {
@@ -7,21 +8,26 @@ const OurOfferings = () => {
   const [offerings, setOfferings] = useState([]);
   const [selectedOfferIndex, setSelectedOfferIndex] = useState(0);
   const [expandedIndex, setExpandedIndex] = useState(null);
+  let [title, setTitle] = useState("");
+  let [subTitle, setSubTitle] = useState("");
+  let [highlightWord, setHighlightWord] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          `http://localhost:3000/api/offerings/${activeTab}`
-        );
-        if (res.data.success) {
-          setOfferings(res.data.offerings || []);
-          setSelectedOfferIndex(0);
-          setExpandedIndex(null);
-        }
-      } catch (err) {
-        console.error("Failed to fetch offerings:", err);
+      const res = await axios.get(
+        `http://localhost:3000/api/offerings/${activeTab}`
+      );
+      if (res.data.success) {
+        setOfferings(res.data.offerings || []);
+        setSelectedOfferIndex(0);
+        setExpandedIndex(null);
       }
+      const response = await axios.get(
+        "http://localhost:3000/api/offerings/gettitle"
+      );
+      setTitle(response.data.data[0].title);
+      setSubTitle(response.data.data[0].subtitle);
+      setHighlightWord(response.data.data[0].highlightword);
     };
 
     fetchData();
@@ -30,11 +36,10 @@ const OurOfferings = () => {
   return (
     <section className="px-4 md:px-10 py-12">
       <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold text-[#223554] mb-6 text-center leading-tight">
-        Our<span className="text-[#0A76DB]"> Offerings</span>
+        {renderTitle(title, highlightWord)}
       </h2>
       <p className="text-[#0D0D0D] max-w-[1000px] mx-auto text-[20px] text-center mb-10">
-        From development to QA to IT operations and AI, we offer a broad range
-        of tech services and solutions customized to your needs.
+        {subTitle}
       </p>
 
       <div className="flex items-center justify-center mb-4">

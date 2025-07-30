@@ -13,6 +13,7 @@ import ImpactImageUpdate from "../components/ImpactImageUpdate";
 import RecognitionUpdate from "../components/RecognitionUpdate";
 import RecognitionImageUpdate from "../components/RecognitionImageUpdate";
 import OfferingsUpdate from "../components/OfferingsUpdate";
+import OfferingTitleUpdate from "../components/OfferingTItleUpdate";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ const AdminDashboard = () => {
         <ImpactImageUpdate />
         <RecognitionUpdate />
         <RecognitionImageUpdate />
+        <OfferingTitleUpdate />
         <OfferingsUpdate />
       </div>
     </>
