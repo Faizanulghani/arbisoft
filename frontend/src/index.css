@@ -7,5 +7,13 @@
 }
 
 .myContent h2{
-    font-size: 40px !important;
+    @apply text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold text-[#223554] mb-6;
+}
+
+.myContent p{
+@apply text-[16px] lg:text-[18px] text-[#0D0D0D] mt-5 leading-relaxed;
+}
+
+.myContent h3{
+  @apply text-[16px] md:text-[18px] font-bold mt-10 -mb-3;
 }
