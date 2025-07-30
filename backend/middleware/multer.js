@@ -9,6 +9,7 @@ const fileFilter = (req, file, cb) => {
     ext !== ".png" &&
     ext !== ".jpeg" &&
     ext !== ".svg" &&
+    ext !== ".gif" &&
     ext !== ".webp"
   ) {
     return cb(new Error("Only Images allowed"), false);
