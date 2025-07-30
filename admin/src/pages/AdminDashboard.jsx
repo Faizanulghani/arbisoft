@@ -14,6 +14,7 @@ import RecognitionUpdate from "../components/RecognitionUpdate";
 import RecognitionImageUpdate from "../components/RecognitionImageUpdate";
 import OfferingsUpdate from "../components/OfferingsUpdate";
 import OfferingTitleUpdate from "../components/OfferingTItleUpdate";
+import EngagementTitleUpdate from "../components/EngagementTitleUpdate";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const AdminDashboard = () => {
         <RecognitionImageUpdate />
         <OfferingTitleUpdate />
         <OfferingsUpdate />
+        <EngagementTitleUpdate />
       </div>
     </>
   );

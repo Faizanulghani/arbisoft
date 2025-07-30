@@ -1,12 +1,20 @@
+import { useEffect, useState } from "react";
 import dedicatedTeam from "../assets/Dedicated_Team.gif";
 import softwareOutsourcing from "../assets/Software_Outsourcing.gif";
 import staffAugmentation from "../assets/Staff_Augmentation.gif";
+import axios from "axios";
 
 const EngagementModels = () => {
+  let [title, setTitle] = useState("");
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/engagement/gettitle").then((res) => {
+      setTitle(res.data.data[0].title);
+    });
+  }, []);
   return (
     <section className="px-4 md:px-10 py-12">
       <h2 className="text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold text-[#223554] mb-12 text-center leading-tight">
-        How Can We Work With You
+        {title}
       </h2>
 
       <div className="space-y-12">
