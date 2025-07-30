@@ -8,7 +8,6 @@ const DescriptionUpdate = () => {
   let handleDescriptionUpdate = async (e) => {
     e.preventDefault();
     const description = e.target[0].value;
-    console.log(description);
     try {
       const response = await API.put("/hero-section/description", {
         description,
@@ -19,7 +18,6 @@ const DescriptionUpdate = () => {
         setMessage("Update failed: " + response.data.message);
       }
     } catch (err) {
-      console.log(err);
       setMessage("Something went wrong");
     }
     e.target[0].value = "";

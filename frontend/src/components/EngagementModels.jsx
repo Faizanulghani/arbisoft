@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import dedicatedTeam from "../assets/Dedicated_Team.gif";
-import softwareOutsourcing from "../assets/Software_Outsourcing.gif";
-import staffAugmentation from "../assets/Staff_Augmentation.gif";
 import axios from "axios";
 
 const EngagementModels = () => {

@@ -14,9 +14,7 @@ const OfferingTitleUpdate = () => {
         title,
         highlightword,
         subtitle,
-      });
-      console.log(response);
-      
+      });      
       if (response.data.success) {
         setUpdatedMessage(response.data.message);
       } else {

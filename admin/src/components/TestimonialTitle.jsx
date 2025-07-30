@@ -20,7 +20,6 @@ const TestimonialTitle = () => {
         setMessage("Update failed: " + response.data.message);
       }
     } catch (err) {
-      console.log(err);
       setMessage("Something went wrong");
     }
     e.target[0].value = "";
