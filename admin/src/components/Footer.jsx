@@ -69,7 +69,7 @@ const Footer = () => {
     e.preventDefault();
     try {
       const data = new FormData();
-      data.append("title", formData.heading);
+      data.append("heading", formData.heading);
       data.append("highlightWords", JSON.stringify(formData.highlightWords));
       data.append("contactEmail", formData.contactEmail);
       data.append("socialLinks", JSON.stringify(formData.socialLinks));

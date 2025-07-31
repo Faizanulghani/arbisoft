@@ -20,6 +20,7 @@ import Inquiry from "../components/Inquiry";
 import InquiryForm from "../components/InquiryForm";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import FooterLogoUpdate from "../components/FooterLogoUpdate";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ const AdminDashboard = () => {
         <Inquiry />
         <InquiryForm />
         <Newsletter />
+        <FooterLogoUpdate />
         <Footer />
       </div>
     </>

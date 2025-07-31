@@ -12,7 +12,7 @@ exports.getFooter = async (req, res) => {
 
 exports.updateFooter = async (req, res) => {
   try {
-    const { title, highlightWords, contactEmail, socialLinks, offices } =
+    const { heading, highlightWords, contactEmail, socialLinks, offices } =
       req.body;
 
     const parsedHighlightWords = JSON.parse(highlightWords || "[]");
@@ -39,7 +39,7 @@ exports.updateFooter = async (req, res) => {
     const certificateUrls = [...existingCertificates, ...newUploaded];
 
     const footerData = {
-      title,
+      heading,
       highlightWords: parsedHighlightWords,
       contactEmail,
       socialLinks: parsedSocialLinks,
