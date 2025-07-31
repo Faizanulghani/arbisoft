@@ -12,6 +12,7 @@ const serviceBlockRoute = require("./router/serviceBlockRoute");
 const inquiryRoute = require("./router/inquiryRoute");
 const inquiryFormRoute = require("./router/inquiryFormRoute");
 const newsLetterRoute = require("./router/newsLetterRoute");
+const footerRoute = require("./router/footerRoute");
 
 const cors = require("cors");
 const connectDB = require("./config/config");
@@ -40,6 +41,7 @@ app.use("/api/serviceblock", serviceBlockRoute);
 app.use("/api/inquiry", inquiryRoute);
 app.use("/api/inquiryform", inquiryFormRoute);
 app.use("/api/newsletter", newsLetterRoute);
+app.use("/api/footer", footerRoute);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");

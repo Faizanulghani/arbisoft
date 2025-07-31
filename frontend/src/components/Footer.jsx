@@ -21,7 +21,6 @@ const Footer = () => {
   return (
     <div className="w-full bg-[#02264b] text-white">
       <div className="max-w-[1400px] mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12 justify-between">
-        {/* Left Section */}
         <div className="w-full lg:w-[45%]">
           <img src={logo} alt="Logo" className="mb-4 w-[160px]" />
 

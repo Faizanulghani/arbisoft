@@ -5,9 +5,7 @@ const InquiryForm = () => {
   const [inquiries, setInquiries] = useState([]);
   const fetchInquiries = async () => {
     try {
-      const res = await API.get("/inquiryform");
-        console.log(res);
-        
+      const res = await API.get("/inquiryform");        
       if (res.data.success) {
         setInquiries(res.data.inquiries);
       }
@@ -34,7 +32,6 @@ const InquiryForm = () => {
               key={item._id}
               className="p-4 bg-white rounded-lg border shadow-sm"
               >
-                {console.log(item)}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div>
                   <strong>Name:</strong> {item.name}
