@@ -8,11 +8,13 @@ const InquiryForm = () => {
     name: "",
     email: "",
     service: "",
-    phone: "",
-    countryCode: "+92",
-    description: "",
+    phoneCode: "+92",
+    phoneNumber: "",
+    message: "",
     budget: "",
+    nda: false,
   });
+
   let [title, setTitle] = useState("");
   let [subtitle, setSubTitle] = useState("");
   let [highlightword, setHighlightword] = useState("");
@@ -26,6 +28,27 @@ const InquiryForm = () => {
       setImage(res.data.data[0].imageurl);
     });
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await axios.post(
+      "http://localhost:3000/api/inquiryform",
+      formData
+    );
+    if (res.data.success) {
+      alert("Submitted Successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        service: "",
+        phoneCode: "+92",
+        phoneNumber: "",
+        message: "",
+        budget: "",
+        nda: false,
+      });
+    }
+  };
 
   return (
     <div className="w-full bg-gray-100 flex items-center justify-center ">
@@ -44,21 +67,38 @@ const InquiryForm = () => {
           </h2>
           <p className="text-[18px] text-[#0D0D0D] mb-10">{subtitle}</p>
 
-          <form className="flex items-baseline flex-col gap-[42px]">
+          <form
+            onSubmit={handleSubmit}
+            className="flex items-baseline flex-col gap-[42px]"
+          >
             <div className="flex flex-col sm:flex-row gap-4 w-full">
               <input
                 type="text"
                 placeholder="Your Name *"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 className="flex-1 border-0 border-b border-[#ccc] px-1 py-2 focus:outline-none focus:border-[#0a76db]"
               />
               <input
                 type="email"
                 placeholder="Your Email *"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 className="flex-1 border-0 border-b border-[#ccc] px-1 py-2 focus:outline-none focus:border-[#0a76db]"
               />
             </div>
 
-            <select className="w-full border-0 border-b border-[#ccc] px-1 py-2 text-[#555] focus:outline-none focus:border-[#0a76db]">
+            <select
+              value={formData.service}
+              onChange={(e) =>
+                setFormData({ ...formData, service: e.target.value })
+              }
+              className="w-full border-0 border-b border-[#ccc] px-1 py-2 text-[#555] focus:outline-none focus:border-[#0a76db]"
+            >
               <option>Select the service you need *</option>
               <optgroup label="Development & QA">
                 <option>Web Development</option>
@@ -68,7 +108,13 @@ const InquiryForm = () => {
             </select>
 
             <div className="flex gap-4">
-              <select className=" border-0 border-b border-[#ccc] px-1 py-2 text-[#555] focus:outline-none focus:border-[#0a76db]">
+              <select
+                value={formData.phoneCode}
+                onChange={(e) =>
+                  setFormData({ ...formData, phoneCode: e.target.value })
+                }
+                className=" border-0 border-b border-[#ccc] px-1 py-2 text-[#555] focus:outline-none focus:border-[#0a76db]"
+              >
                 <option value="+92">+92</option>
                 <option value="+1">+1</option>
                 <option value="+44">+44</option>
@@ -76,6 +122,10 @@ const InquiryForm = () => {
               <input
                 type="tel"
                 placeholder="Phone Number"
+                value={formData.phoneNumber}
+                onChange={(e) =>
+                  setFormData({ ...formData, phoneNumber: e.target.value })
+                }
                 className="flex-1 border-0 border-b border-[#ccc] px-1 py-2 focus:outline-none focus:border-[#0a76db]"
               />
             </div>
@@ -83,10 +133,20 @@ const InquiryForm = () => {
             <textarea
               rows={4}
               placeholder="Please describe your project *"
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
               className="w-full border-0 border-b border-[#ccc] px-1 py-2 focus:outline-none focus:border-[#0a76db] resize-none"
             ></textarea>
 
-            <select className="w-full border-0 border-b border-[#ccc] px-1 py-2 text-[#555] focus:outline-none focus:border-[#0a76db]">
+            <select
+              value={formData.budget}
+              onChange={(e) =>
+                setFormData({ ...formData, budget: e.target.value })
+              }
+              className="w-full border-0 border-b border-[#ccc] px-1 py-2 text-[#555] focus:outline-none focus:border-[#0a76db]"
+            >
               <option>What is your budget? *</option>
               <option>Less than USD 50,000</option>
               <option>USD 50,000 - USD 100,000</option>
@@ -94,7 +154,14 @@ const InquiryForm = () => {
             </select>
 
             <div className="flex gap-3">
-              <input type="checkbox" id="nda" />
+              <input
+                type="checkbox"
+                id="nda"
+                value={formData.nda}
+                onChange={(e) =>
+                  setFormData({ ...formData, nda: e.target.checked })
+                }
+              />
               <label htmlFor="nda" className="text-[#6A6A6A] text-[17px]">
                 Request NDA
               </label>

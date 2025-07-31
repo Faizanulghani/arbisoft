@@ -10,6 +10,7 @@ const offeringRoutes = require("./router/offeringRoutes");
 const engagementRoute = require("./router/engagementRoute");
 const serviceBlockRoute = require("./router/serviceBlockRoute");
 const inquiryRoute = require("./router/inquiryRoute");
+const inquiryFormRoute = require("./router/inquiryFormRoute");
 
 const cors = require("cors");
 const connectDB = require("./config/config");
@@ -36,6 +37,7 @@ app.use("/api/offerings", offeringRoutes);
 app.use("/api/engagement", engagementRoute);
 app.use("/api/serviceblock", serviceBlockRoute);
 app.use("/api/inquiry", inquiryRoute);
+app.use("/api/inquiryform", inquiryFormRoute);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
