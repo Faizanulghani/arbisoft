@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
+import MegaMenu from "./MegaMenu";
+import SwiperCore from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
+import MobileMenu from "./MobileMenu";
+import ServicesMegaMenu from "./ServicesMegaMenu";
+
+SwiperCore.use([Navigation, Pagination]);
 
 const Header = ({ logo }) => {
+  const [activeMegaMenu, setActiveMegaMenu] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-
   const links = [
     { name: "About", link: "#" },
     { name: "Service", link: "#" },
@@ -15,8 +22,8 @@ const Header = ({ logo }) => {
   ];
 
   return (
-    <header className="w-full border-b border-[#d6d6d6]">
-      <div className="mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="w-full border-b border-[#0a76db]">
+      <div className="mx-auto px-6 lg:py-0 py-4 flex items-center justify-between">
         <div className="flex-shrink-0">
           {logo && (
             <img
@@ -50,15 +57,27 @@ const Header = ({ logo }) => {
 
         <nav className="hidden lg:flex items-center gap-6 text-base">
           {links.map((item, index) => (
-            <Link
+            <div
               key={index}
-              to={item.link}
-              className="group relative flex items-center gap-1 text-gray-800 hover:text-[#0A76DB] transition"
+              className="group relative py-5"
+              onMouseEnter={() => {
+                item.name === "About" && setActiveMegaMenu("about");
+                item.name === "Service" && setActiveMegaMenu("service");
+              }}
+              onMouseLeave={() => setActiveMegaMenu(null)}
             >
-              {item.name}
-              <IoIosArrowDown />
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0A76DB] group-hover:w-full transition-all duration-300"></span>
-            </Link>
+              <Link
+                to={item.link}
+                className="flex items-center gap-1 text-gray-800 hover:text-[#0A76DB] transition"
+              >
+                {item.name}
+                <IoIosArrowDown />
+              </Link>
+              {item.name === "About" && activeMegaMenu === "about" && <MegaMenu />}
+              {item.name === "Service" && activeMegaMenu === "service" && (
+                <ServicesMegaMenu />
+              )}
+            </div>
           ))}
           <button className="py-2 px-6 bg-[#0a76db] text-white rounded-lg">
             Contact Us
@@ -66,58 +85,12 @@ const Header = ({ logo }) => {
         </nav>
       </div>
 
-      <div
-        className={`fixed top-0 left-0 h-full w-full bg-white z-50 transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } sm:hidden flex flex-col`}
-      >
-        <div className="flex items-center justify-between px-4 py-4 border-b border-[#ebebeb]">
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-gray-600 hover:text-red-500"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-          {logo && (
-            <img
-              src={logo}
-              alt="Logo"
-              className="w-[100px] h-auto object-contain"
-            />
-          )}
-        </div>
-
-        <div className="flex-1 overflow-y-auto">
-          {links.map((item, index) => (
-            <Link
-              key={index}
-              to={item.link}
-              className="flex justify-between items-center px-6 py-3 text-gray-800 text-sm border-b border-[#ebebeb] bg-[#fafafb] hover:text-[#0A76DB]"
-            >
-              <span>{item.name}</span>
-              <IoIosArrowDown className="text-md" />
-            </Link>
-          ))}
-        </div>
-
-        <div className="p-4 border-t border-[#ebebeb]">
-          <button className="w-full py-3 bg-[#0a76db] text-white rounded-lg">
-            Contact Us
-          </button>
-        </div>
-      </div>
+      <MobileMenu
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        logo={logo}
+        links={links}
+      />
     </header>
   );
 };
