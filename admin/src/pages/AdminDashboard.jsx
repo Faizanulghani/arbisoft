@@ -18,6 +18,7 @@ import EngagementTitleUpdate from "../components/EngagementTitleUpdate";
 import ServiceBlock from "../components/serviceBlock";
 import Inquiry from "../components/Inquiry";
 import InquiryForm from "../components/InquiryForm";
+import Newsletter from "../components/Newsletter";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -53,6 +54,7 @@ const AdminDashboard = () => {
         <ServiceBlock />
         <Inquiry />
         <InquiryForm />
+        <Newsletter />
       </div>
     </>
   );
