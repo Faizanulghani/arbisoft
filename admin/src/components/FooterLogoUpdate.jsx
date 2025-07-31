@@ -14,8 +14,6 @@ const FooterLogoUpdate = () => {
 
     try {
       const res = await API.post("/footer/logoimg", formData);
-      console.log(res);
-
       if (res.data.success) {
         setMessage("✅ Logo uploaded successfully!");
       } else {

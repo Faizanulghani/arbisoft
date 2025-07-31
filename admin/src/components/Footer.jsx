@@ -4,7 +4,7 @@ import API from "../api";
 const Footer = () => {
   const [formData, setFormData] = useState({
     heading: "",
-    highlightWords: ["", ""],
+    highlightWords: "",
     contactEmail: "",
     certificates: [],
     socialLinks: {
@@ -24,7 +24,7 @@ const Footer = () => {
         const footer = res.data.footer;
         setFormData({
           heading: footer.heading || "",
-          highlightWords: footer.highlightWords || ["", ""],
+          highlightWords: footer.highlightWords || "",
           contactEmail: footer.contactEmail || "",
           certificates: footer.certificates?.map((url) => ({ url })) || [],
           socialLinks: footer.socialLinks || {
@@ -70,7 +70,7 @@ const Footer = () => {
     try {
       const data = new FormData();
       data.append("heading", formData.heading);
-      data.append("highlightWords", JSON.stringify(formData.highlightWords));
+      data.append("highlightWords", formData.highlightWords);
       data.append("contactEmail", formData.contactEmail);
       data.append("socialLinks", JSON.stringify(formData.socialLinks));
       data.append("offices", JSON.stringify(formData.offices));
@@ -117,24 +117,11 @@ const Footer = () => {
         <div className="flex gap-4">
           <input
             type="text"
-            placeholder="Highlight Word 1"
-            value={formData.highlightWords[0]}
-            onChange={(e) => {
-              const updated = [...formData.highlightWords];
-              updated[0] = e.target.value;
-              setFormData({ ...formData, highlightWords: updated });
-            }}
-            className="flex-1 border p-2 rounded"
-          />
-          <input
-            type="text"
-            placeholder="Highlight Word 2"
-            value={formData.highlightWords[1]}
-            onChange={(e) => {
-              const updated = [...formData.highlightWords];
-              updated[1] = e.target.value;
-              setFormData({ ...formData, highlightWords: updated });
-            }}
+            placeholder="Highlight Word(s)"
+            value={formData.highlightWords}
+            onChange={(e) =>
+              setFormData({ ...formData, highlightWords: e.target.value })
+            }
             className="flex-1 border p-2 rounded"
           />
         </div>

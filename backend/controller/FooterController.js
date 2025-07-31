@@ -15,7 +15,6 @@ exports.updateFooter = async (req, res) => {
     const { heading, highlightWords, contactEmail, socialLinks, offices } =
       req.body;
 
-    const parsedHighlightWords = JSON.parse(highlightWords || "[]");
     const parsedSocialLinks = JSON.parse(socialLinks || "{}");
     const parsedOffices = JSON.parse(offices || "[]");
     const existingCertificates = JSON.parse(
@@ -40,7 +39,7 @@ exports.updateFooter = async (req, res) => {
 
     const footerData = {
       heading,
-      highlightWords: parsedHighlightWords,
+      highlightWords,
       contactEmail,
       socialLinks: parsedSocialLinks,
       offices: parsedOffices,

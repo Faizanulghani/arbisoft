@@ -8,7 +8,7 @@ const officeSchema = new mongoose.Schema({
 
 const footerSchema = new mongoose.Schema({
   heading: String,
-  highlightWords: [String],
+  highlightWords: String,
   contactEmail: String,
   socialLinks: {
     facebook: String,
