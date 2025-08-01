@@ -59,7 +59,7 @@ const Header = ({ logo }) => {
           {links.map((item, index) => (
             <div
               key={index}
-              className="group relative py-5"
+              className="group relative h-15 flex"
               onMouseEnter={() => {
                 item.name === "About" && setActiveMegaMenu("about");
                 item.name === "Service" && setActiveMegaMenu("service");

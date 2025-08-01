@@ -35,9 +35,9 @@ const MegaMenu = () => {
     setIsEnd(swiper.isEnd);
   };
   return (
-    <div className="lg:absolute relative top-0 lg:top-[65px] left-0 lg:-left-88 max-w-[1200px] z-50 bg-[#fff] p-8 flex flex-col lg:flex-row gap-6">
+    <div className="lg:absolute relative top-0 lg:top-[61px] left-0 lg:-left-88 max-w-[1200px] z-50 bg-[#fff] p-8 flex flex-col lg:flex-row gap-6">
       <div className="bg-white p-6 w-full lg:w-1/2">
-        <p className="text-[24px] text-[#223554] font-bold mb-6">
+        <p className="text-[24px] text-[#223554] font-bold mb-6 border-b-2 border-[#fa8f21] inline-block">
           A Technology Partnership That Goes Beyond Code
         </p>
 
@@ -169,7 +169,7 @@ const MegaMenu = () => {
 
       <div className="flex flex-col gap-8 w-full lg:w-1/2">
         <div>
-          <p className="font-bold mb-2">Company</p>
+          <p className="font-bold mb-2 border-b-2 border-[#fa8f21] inline-block">Company</p>
           <p className="text-xs uppercase mb-2">About Us</p>
           <p className="text-xs uppercase mb-2">Success Stories</p>
           <p className="text-xs uppercase mb-2">Our Products</p>
@@ -177,7 +177,9 @@ const MegaMenu = () => {
         </div>
 
         <div className="border-t border-gray-300 pt-4">
-          <p className="font-semibold mb-1">Inside Arbisoft</p>
+          <p className="font-semibold mb-1 border-b-2 border-[#fa8f21] inline-block">
+            Inside Arbisoft
+          </p>
           <p className="text-xs uppercase mb-2">Life at Arbisoft</p>
         </div>
 
@@ -188,7 +190,9 @@ const MegaMenu = () => {
         </div>
 
         <div className="border-t border-gray-300 pt-4">
-          <p className="font-semibold mb-2">Trending Blogs</p>
+          <p className="font-semibold mb-2 border-b-2 border-[#fa8f21] inline-block">
+            Trending Blogs
+          </p>
 
           {[...Array(3)].map((_, i) => (
             <div key={i} className="flex gap-4 mb-3">

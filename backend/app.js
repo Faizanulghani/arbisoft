@@ -11,6 +11,7 @@ const engagementRoute = require("./router/engagementRoute");
 const serviceBlockRoute = require("./router/serviceBlockRoute");
 const inquiryRoute = require("./router/inquiryRoute");
 const inquiryFormRoute = require("./router/inquiryFormRoute");
+const newsLetterContentRoute = require("./router/newsLetterContentRoute");
 const newsLetterRoute = require("./router/newsLetterRoute");
 const footerRoute = require("./router/footerRoute");
 
@@ -40,6 +41,7 @@ app.use("/api/engagement", engagementRoute);
 app.use("/api/serviceblock", serviceBlockRoute);
 app.use("/api/inquiry", inquiryRoute);
 app.use("/api/inquiryform", inquiryFormRoute);
+app.use("/api/newslettercontent", newsLetterContentRoute);
 app.use("/api/newsletter", newsLetterRoute);
 app.use("/api/footer", footerRoute);
 

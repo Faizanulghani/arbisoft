@@ -1,7 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
+import { useEffect } from "react";
 const Newsletter = () => {
   let [newsLetter, setNewsLetter] = useState("");
+  let [title, setTitle] = useState("");
+  let [subtitle, setSubtitle] = useState("");
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/newslettercontent").then((res) => {
+      setTitle(res.data.data[0].title);
+      setSubtitle(res.data.data[0].subtitle);
+    });
+  });
   const handleSubmit = async (e) => {
     e.preventDefault();
     let res = await axios.post("http://localhost:3000/api/newsletter", {
@@ -19,11 +28,9 @@ const Newsletter = () => {
       <div className="max-w-[1400px] mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="max-w-xl">
           <h2 className="text-[40px] font-semibold tracking-[-2px] mb-3">
-            Newsletter
+            {title}
           </h2>
-          <p className="text-[20px] leading-snug">
-            Join us to stay connected with the global trends and technologies
-          </p>
+          <p className="text-[20px] leading-snug">{subtitle}</p>
         </div>
 
         <div className="bg-white rounded-md px-4 py-3 w-full max-w-md">

@@ -21,6 +21,7 @@ import InquiryForm from "../components/InquiryForm";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import FooterLogoUpdate from "../components/FooterLogoUpdate";
+import NewsLetterContent from "../components/NewsLetterContent";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -56,6 +57,7 @@ const AdminDashboard = () => {
         <ServiceBlock />
         <Inquiry />
         <InquiryForm />
+        <NewsLetterContent />
         <Newsletter />
         <FooterLogoUpdate />
         <Footer />
