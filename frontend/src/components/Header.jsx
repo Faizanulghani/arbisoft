@@ -7,6 +7,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import MobileMenu from "./MobileMenu";
 import ServicesMegaMenu from "./ServicesMegaMenu";
 import SolutionsMegaMenu from "./SolutionsMegaMenu";
+import IndustriesMegaMenu from "./IndustriesMegaMenu";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -65,6 +66,7 @@ const Header = ({ logo }) => {
                 item.name === "About" && setActiveMegaMenu("about");
                 item.name === "Service" && setActiveMegaMenu("service");
                 item.name === "Solutions" && setActiveMegaMenu("solutions");
+                item.name === "Industries" && setActiveMegaMenu("industries");
               }}
               onMouseLeave={() => setActiveMegaMenu(null)}
             >
@@ -84,6 +86,8 @@ const Header = ({ logo }) => {
               {item.name === "Solutions" && activeMegaMenu === "solutions" && (
                 <SolutionsMegaMenu />
               )}
+              {item.name === "Industries" &&
+                activeMegaMenu === "industries" && <IndustriesMegaMenu />}
             </div>
           ))}
           <button className="py-2 px-6 bg-[#0a76db] text-white rounded-lg">
