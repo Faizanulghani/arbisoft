@@ -35,8 +35,8 @@ const MegaMenu = () => {
     setIsEnd(swiper.isEnd);
   };
   return (
-    <div className="lg:absolute relative top-0 lg:top-[61px] left-0 lg:-left-88 max-w-[1200px] z-50 bg-[#fff] p-8 flex flex-col lg:flex-row gap-6">
-      <div className="bg-white p-6 w-full lg:w-1/2">
+    <div className="lg:absolute relative top-0 lg:top-[61px] left-0 lg:left-0 w-[100%] z-50 bg-[#fff] pr-8 flex flex-col lg:flex-row gap-6">
+      <div className="bg-[#f9faff] p-8 lg:w-[40%]  ">
         <p className="text-[24px] text-[#223554] font-bold mb-6 border-b-2 border-[#fa8f21] inline-block">
           A Technology Partnership That Goes Beyond Code
         </p>
@@ -167,29 +167,53 @@ const MegaMenu = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 w-full lg:w-1/2">
-        <div>
-          <p className="font-bold mb-2 border-b-2 border-[#fa8f21] inline-block">Company</p>
-          <p className="text-xs uppercase mb-2">About Us</p>
-          <p className="text-xs uppercase mb-2">Success Stories</p>
-          <p className="text-xs uppercase mb-2">Our Products</p>
-          <p className="text-xs uppercase mb-2">Blog</p>
+      <div className="flex lg:flex-row flex-col p-8 lg:w-[60%]">
+        <div className="w-1/2 flex flex-col items-baseline">
+          <p className="font-bold mb-2 border-b-2 border-[#fa8f21] inline-block">
+            Company
+          </p>
+          <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            About Us
+          </p>
+          <p className=" hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            Success Stories
+          </p>
+          <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            Our Products
+          </p>
+          <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            Blog
+          </p>
+          <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            Who we work with
+          </p>
+          <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            Testimonials
+          </p>
+          <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            Engagement Models
+          </p>
         </div>
 
-        <div className="border-t border-gray-300 pt-4">
+        <div className="w-1/2 flex flex-col items-baseline lg:mt-0 mt-5">
           <p className="font-semibold mb-1 border-b-2 border-[#fa8f21] inline-block">
             Inside Arbisoft
           </p>
-          <p className="text-xs uppercase mb-2">Life at Arbisoft</p>
+          <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+            Life at Arbisoft
+          </p>
+          <div className="lg:mt-0 mt-5">
+            <p className="font-semibold mb-2">Careers</p>
+            <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+              Fresh Grads
+            </p>
+            <p className="hover:text-[#FA8F21] hover:font-semibold transition-all p-[5px] hover:bg-[#fff6f1] rounded">
+              Open Positions
+            </p>
+          </div>
         </div>
 
-        <div>
-          <p className="font-semibold mb-2">Careers</p>
-          <p className="text-xs uppercase mb-2">Fresh Grads</p>
-          <p className="text-xs uppercase mb-2">Open Positions</p>
-        </div>
-
-        <div className="border-t border-gray-300 pt-4">
+        <div className="w-2/3 flex flex-col items-baseline lg:mt-0 mt-5">
           <p className="font-semibold mb-2 border-b-2 border-[#fa8f21] inline-block">
             Trending Blogs
           </p>
@@ -199,11 +223,11 @@ const MegaMenu = () => {
               <img
                 src={about}
                 alt="Blog"
-                className="w-16 h-16 object-cover rounded"
+                className="w-22 h-16 object-cover rounded"
               />
               <p className="text-[13px] underline">
-                Machine Learning Experts Hiring Guide 2025: What to Know, What
-                to Ask, and What to Avoid
+                How Do You Hire a Machine Learning Engineer Who Can Deliver Real
+                Business Value?
               </p>
             </div>
           ))}

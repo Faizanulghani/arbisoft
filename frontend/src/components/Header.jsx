@@ -6,6 +6,7 @@ import SwiperCore from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
 import MobileMenu from "./MobileMenu";
 import ServicesMegaMenu from "./ServicesMegaMenu";
+import SolutionsMegaMenu from "./SolutionsMegaMenu";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -59,10 +60,11 @@ const Header = ({ logo }) => {
           {links.map((item, index) => (
             <div
               key={index}
-              className="group relative h-15 flex"
+              className="group h-15 flex"
               onMouseEnter={() => {
                 item.name === "About" && setActiveMegaMenu("about");
                 item.name === "Service" && setActiveMegaMenu("service");
+                item.name === "Solutions" && setActiveMegaMenu("solutions");
               }}
               onMouseLeave={() => setActiveMegaMenu(null)}
             >
@@ -73,9 +75,14 @@ const Header = ({ logo }) => {
                 {item.name}
                 <IoIosArrowDown />
               </Link>
-              {item.name === "About" && activeMegaMenu === "about" && <MegaMenu />}
+              {item.name === "About" && activeMegaMenu === "about" && (
+                <MegaMenu />
+              )}
               {item.name === "Service" && activeMegaMenu === "service" && (
                 <ServicesMegaMenu />
+              )}
+              {item.name === "Solutions" && activeMegaMenu === "solutions" && (
+                <SolutionsMegaMenu />
               )}
             </div>
           ))}

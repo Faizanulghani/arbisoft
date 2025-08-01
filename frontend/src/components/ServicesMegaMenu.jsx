@@ -37,7 +37,7 @@ import bg from "../assets/service_nav.png";
 
 const ServicesMegaMenu = () => {
   return (
-    <div className="lg:absolute relative top-0 lg:top-[61px] left-0 lg:-left-35 lg:-translate-x-100 z-50 bg-white px-8 lg:py-0 py-4 lg:gap-0 gap-4 flex flex-col items-center justify-between lg:flex-row w-[100vw]">
+    <div className="lg:absolute relative top-0 lg:top-[61px] left-0 z-50 bg-white px-8 lg:py-0 py-4 lg:gap-0 gap-4 flex flex-col items-center justify-between lg:flex-row w-[100%]">
       <div className="flex lg:flex-row flex-col w-[100%] lg:w-[60%]">
         {servicesData.map((section, index) => (
           <div key={index} className="w-full lg:w-1/3">
